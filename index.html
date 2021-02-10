@@ -21,14 +21,27 @@
 </head>
 
 <body>
-  <div id="app" class="h-screen w-full bg-gray-200 flex items-start justify-start">
-    <img src="./images/1.jpg" class="w-1/3 h-full">
-    <div class="w-full flex items-center justify-end">
-      <i class="material-icons">face</i>
-      <p class="font-semibold text-xl tracking-wider uppercase px-3"> {{ msg }}</p>
+  <div id="app">
+    <p class="text-center text-3xl mb-2">{{header}}({{countUndone}})
+      <span class="material-icons text-red-400">
+      favorite
+      </span></p>
+    <div v-for="(task,index) in tasks" class="ml-5">
+      <div class="flex flex-row mb-3">
+        <img :src="task.image" v-on:click="toggleDone(index)" width="550" height="450">
+        <div class="my-4 text-2xl ml-2">----------------------------------------------------------
+          <br>{{task.name}}
+          <span class="material-icons text-red-400" v-show="task.done">
+            favorite
+            </span>
+            <br>----------------------------------------------------------
+            <p>
+              {{task.location}}
+            </p>
+        </div>
     </div>
   </div>
-
+  </div>
   <!-- my main.js -->
   <script src="./main.js"></script>
 </body>
