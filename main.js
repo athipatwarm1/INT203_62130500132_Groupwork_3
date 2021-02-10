@@ -23,7 +23,7 @@ const app = {
     },
     computed: {
         countUndone(){
-            return this.tasks.filter( t => !t.done ).length
+            return this.tasks.filter( t => t.done ).length
         }
     }
 
